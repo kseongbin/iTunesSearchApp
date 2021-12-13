@@ -40,6 +40,9 @@ public class MainActivity extends AppCompatActivity {
     }//onCreate method...
 
     public void clickBtn(View view) {
+        apiResults.clear();
+        adapter.notifyDataSetChanged();
+
         et = findViewById(R.id.et);
 
         Retrofit.Builder builder = new Retrofit.Builder();
@@ -78,4 +81,6 @@ public class MainActivity extends AppCompatActivity {
         et.clearFocus();
 
     }//clickBtn method...
+
+
 }//MainActivity class..

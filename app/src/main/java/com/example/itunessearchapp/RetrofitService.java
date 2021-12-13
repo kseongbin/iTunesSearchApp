@@ -6,5 +6,5 @@ import retrofit2.http.Query;
 
 public interface RetrofitService {
     @GET("/search")
-    Call<RecyclerViewItem> searchItunesApp(@Query("term") String term, @Query("country") String country, @Query("entity") String song);
+    Call<RecyclerViewItem> searchItunesApp(@Query("term") String term, @Query("country") String country, @Query("entity") String entity);
 }
