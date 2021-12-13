@@ -40,9 +40,14 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter {
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
         VH vh = (VH)holder;
         ApiResult item = results.get(position);
+        int timeMin = Integer.parseInt(item.trackTimeMillis)/(60*1000);
+        int timeSec = Integer.parseInt(item.trackTimeMillis)%(60*1000)/1000;
+        String min = String.valueOf(timeMin);
+        String sec = String.valueOf(timeSec);
+
 
         vh.name.setText(item.trackName);
-        vh.time.setText(item.trackTimeMillis);
+        vh.time.setText(min+"분"+sec+"초");
         vh.collection.setText(item.collectionName);
         vh.year.setText(item.releaseDate);
         vh.artist.setText(item.artistName);

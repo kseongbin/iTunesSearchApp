@@ -23,11 +23,11 @@
             android:id="@+id/name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_below="@id/time"
             android:layout_toRightOf="@id/iv"
             android:text="trackName"
-            android:textSize="18sp"
             android:textColor="@color/black"
+            android:textSize="18sp"
             android:textStyle="bold" />
 
         <TextView
@@ -35,9 +35,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
-            android:text="분:초"
             android:paddingRight="4dp"
-            android:textColor="#FF333333"/>
+            android:textSize="10sp"
+            android:text="분:초"
+            android:textColor="#FF333333" />
 
         <TextView
             android:id="@+id/collection"
@@ -45,6 +46,8 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/name"
             android:layout_toRightOf="@id/iv"
+            android:textSize="12sp"
+            android:lineSpacingExtra="4dp"
             android:text="collectionName"
             android:textColor="#FF333333" />
 
@@ -54,6 +57,7 @@
             android:layout_height="wrap_content"
             android:layout_toRightOf="@id/collection"
             android:textColor="#FF333333"
+            android:textSize="12sp"
             android:layout_below="@id/name"
             android:text=","/>
 
@@ -61,21 +65,24 @@
             android:id="@+id/year"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toRightOf="@id/comma"
-            android:textColor="#FF333333"
             android:layout_below="@id/name"
+            android:textSize="12sp"
             android:layout_marginLeft="4dp"
-            android:text="발매년도"/>
+            android:layout_toRightOf="@id/comma"
+            android:maxLength="10"
+            android:text="발매년도"
+            android:textColor="#FF333333" />
 
         <TextView
             android:id="@+id/artist"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_below="@id/collection"
             android:layout_toRightOf="@id/iv"
-            android:textColor="#FF333333"
-            android:layout_alignBottom="@id/iv"
+            android:layout_marginTop="8dp"
+            android:lineSpacingExtra="4dp"
             android:text="artistName"
-            android:layout_marginBottom="16dp"/>
+            android:textColor="#FF333333" />
 
     </RelativeLayout>
 

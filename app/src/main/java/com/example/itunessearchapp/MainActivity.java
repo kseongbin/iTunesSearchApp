@@ -63,17 +63,19 @@ public class MainActivity extends AppCompatActivity {
                 for (ApiResult result:results){
                     apiResults.add(result);
                     adapter.notifyItemInserted(apiResults.size()-1);
+
                 }
 //                Toast.makeText(MainActivity.this, results.size()+"", Toast.LENGTH_SHORT).show();
             }
 
             @Override
             public void onFailure(Call<RecyclerViewItem> call, Throwable t) {
-                Toast.makeText(MainActivity.this, "검색결과가 없습니다.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, "error: "+t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
 
-
+        et.setText("");
+        et.clearFocus();
 
     }//clickBtn method...
 }//MainActivity class..
