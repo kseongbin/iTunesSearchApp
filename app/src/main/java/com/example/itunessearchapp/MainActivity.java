@@ -32,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //리사이클러뷰 작동확인위한 테스트
 //        items.add(new RecyclerViewItem("trackName", "분:초", "collectionName", "발매년도", "artistName", R.drawable.ic_launcher_background));
 //        items.add(new RecyclerViewItem("trackName", "분:초", "collectionName", "발매년도", "artistName", R.drawable.ic_launcher_background));
 //        items.add(new RecyclerViewItem("trackName", "분:초", "collectionName", "발매년도", "artistName", R.drawable.ic_launcher_background));
@@ -39,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
         recyclerView= findViewById(R.id.recyclerview);
         adapter = new RecyclerViewAdapter(this, apiResults);
         recyclerView.setAdapter(adapter);
+
     }//onCreate method...
 
     public void clickBtn(View view) {
@@ -92,6 +94,7 @@ public class MainActivity extends AppCompatActivity {
                 if (lastVisibleItemPosition == itemTotalCount) {
                     Toast.makeText(MainActivity.this, "마지막 페이지입니다.", Toast.LENGTH_LONG).show();
                 }
+                return;
             }
         });
 
