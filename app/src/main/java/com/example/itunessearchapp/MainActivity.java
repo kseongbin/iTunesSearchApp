@@ -1,7 +1,9 @@
 package com.example.itunessearchapp;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
@@ -59,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
 //                Toast.makeText(MainActivity.this, "성공", Toast.LENGTH_SHORT).show();
                 ArrayList<ApiResult> results =response.body().results;
                 if(results.size()==0){
-                    Toast.makeText(MainActivity.this, "검색결과가 없습니다.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, "검색결과가 없습니다.", Toast.LENGTH_LONG).show();
                     return;
                 }
 
@@ -79,6 +81,19 @@ public class MainActivity extends AppCompatActivity {
 
         et.setText("");
         et.clearFocus();
+
+        recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
+                super.onScrolled(recyclerView, dx, dy);
+
+                int lastVisibleItemPosition = ((LinearLayoutManager) recyclerView.getLayoutManager()).findLastCompletelyVisibleItemPosition();
+                int itemTotalCount = recyclerView.getAdapter().getItemCount() - 1;
+                if (lastVisibleItemPosition == itemTotalCount) {
+                    Toast.makeText(MainActivity.this, "마지막 페이지입니다.", Toast.LENGTH_LONG).show();
+                }
+            }
+        });
 
     }//clickBtn method...
 
